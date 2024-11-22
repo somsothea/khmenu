@@ -1,4 +1,4 @@
-# cadt-frontend
+# digitalmenu
 
 ## Project setup
 ```

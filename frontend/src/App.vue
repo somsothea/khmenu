@@ -1,5 +1,18 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center">
-    <router-view />
-  </div>
+  <Header/>
+  <router-view></router-view>
+  <Footer/>
 </template>
+
+<script>
+import Footer from '@/components/Footer.vue';
+import Header from '@/components/Header.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Footer
+  }
+}
+</script>
