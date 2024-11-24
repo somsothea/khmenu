@@ -3,11 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-nginx
-    container_name: load-balancer
+    container_name: khmenu-load-balancer
     depends_on:
       - express
     environment:
-      - NGINX_SERVER_NAME=khmenu.cloud
+      - NGINX_SERVER_NAME=localhost
       - EXPRESS_HOST_1=${EXPRESS_CONTAINER}-1
       - EXPRESS_HOST_2=${EXPRESS_CONTAINER}-2
       - EXPRESS_HOST_3=${EXPRESS_CONTAINER}-3

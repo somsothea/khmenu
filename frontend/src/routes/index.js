@@ -14,8 +14,12 @@ import Privacy from '@/pages/Privacy.vue'
 const routes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/item', component: Item },
-    { path: '/store', component: Store },
+    { path: '/items', component: Item },
+    { path: '/items/:id', component: Item },
+    { path: '/stores', component: Store, children:[
+      {path: ':id', component: StoreDetail}
+    ] },
+
     { path: '/storedetail', component: StoreDetail },
     { path: '/term', component: Terms },
     { path: '/privacy', component: Privacy }

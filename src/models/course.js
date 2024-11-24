@@ -1,16 +1,19 @@
-const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate-v2');
+const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 const courseSchema = new mongoose.Schema({
-  price: { type: Number, required: true },
-  title: { type: String, required: true },
-  category: { type: String, required: true },
-  author: { type: String, required: true },
-  createdDate: { type: Date, required: true, default: new Date() },
-});
+    storename: { type: String, required: true },
+    storeaddress: { type: String, required: true },
+    storelogo: { type: String, required: true },
+    storebanner: { type: String, required: true },
+    storeurl: { type: String, required: true },
+    category: { type: String, required: true },
+    user: { type: mongoose.Types.ObjectId, ref: 'Users' },
+    createdDate: { type: Date, required: true, default: new Date() },
+})
 
-courseSchema.plugin(mongoosePaginate);
+courseSchema.plugin(mongoosePaginate)
 
-const CourseModel = mongoose.model('Courses', courseSchema);
+const CourseModel = mongoose.model('Stores', courseSchema)
 
-module.exports = CourseModel;
+module.exports = CourseModel

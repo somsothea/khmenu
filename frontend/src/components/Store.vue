@@ -2,7 +2,7 @@
 <div class="container-fluid tm-container-content tm-mt-60">
         <div class="row mb-4">
             <h2 class="col-6 tm-text-primary">
-                New Stores
+                Latest Stores
             </h2>
             <div class="col-6 d-flex justify-content-end align-items-center">
                 <form action="" class="tm-text-primary">
@@ -11,15 +11,13 @@
             </div>
         </div>
         <div class="row tm-mb-90 tm-gallery">
-        	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 tm-item">
                 <StoreCard v-for="(item, index) in stores"
                     :key="index"
-                    :title="item.title"
-                    :description="item.description"
-                    :price="item.price"     
+                    :storename="item.storename"
+                    :storeaddress="item.storeaddress"   
+                    :storebanner="item.storebanner"
                     :category="item.category">
                 </StoreCard>
-            </div>
                 
         </div> <!-- row -->
         <div class="row tm-mb-90">
@@ -47,7 +45,7 @@ export default({
         };
     },
     async created(){
-        const url= "http://localhost:4000/v1/books";
+        const url= "http://192.168.1.11:4000/v1/stores";
 
         try {
             //promise and async

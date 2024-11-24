@@ -1,32 +1,36 @@
-const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate-v2');
+const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 const bookSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  genre: {
-    type: String,
-    required: true,
-  },
-  author: { type: mongoose.Types.ObjectId, ref: 'Users' },
-  page: { type: Number, required: true },
-  description: {
-    type: String,
-    required: true,
-  },
-  createdDate: { type: Date, required: true, default: new Date() },
-  covers: [{ type: mongoose.Types.ObjectId, ref: 'Files' }],
-});
-bookSchema.plugin(mongoosePaginate);
+    price: { type: Number, required: true },
+    title: {
+        type: String, required: true
+    },
+    category: {
+        type: String, required: true
+    },
+    page: { type: Number, required: true },
+    description: {
+        type: String,
+        required: true
+    },
+    covers: [{ type: mongoose.Types.ObjectId, ref: 'Files' }],
+    user: { type: mongoose.Types.ObjectId, ref: 'Users' },
+    storeid: { type: mongoose.Types.ObjectId, ref: 'Courses' },
+    createdDate: { type: Date, required: true, default: new Date() }
+    
+})
+bookSchema.plugin(mongoosePaginate)
 
-bookSchema.index({
-  description: 'text',
-  genre: 'text',
-  title: 'text',
-});
+bookSchema.index(
+    {
+        price: 'number',
+        description: 'text',
+        category: 'text',
+        title: 'text'
+    }
+)
 
-const BookModel = mongoose.model('Books', bookSchema);
+const BookModel = mongoose.model('Items', bookSchema)
 
-module.exports = BookModel;
+module.exports = BookModel

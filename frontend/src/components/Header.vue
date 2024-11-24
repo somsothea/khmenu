@@ -18,13 +18,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="/store">Stores</a>
+                    <router-link to="/stores" class="nav-link nav-link-1" :class="{ active: $route.path === '/stores' }">Stores</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="/item">Items</a>
+                    <router-link to="/items" class="nav-link nav-link-1" :class="{ active: $route.path === '/items' }">Items</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="/about">About</a>
+                    <router-link to="/about" class="nav-link nav-link-1" :class="{ active: $route.path === '/about' }">About Us</router-link>
                 </li>
             </ul>
             </div>

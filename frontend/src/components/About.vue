@@ -2,7 +2,7 @@
     <div class="container-fluid tm-mt-60">
         <div class="row mb-4">
             <h2 class="col-12 tm-text-primary">
-                About KHmenu.cloud (Cloud Menu)
+                About Khmenu.CLoud (Cloud Menu)
             </h2>
         </div>
         <div class="row tm-mb-74 tm-row-1640">            

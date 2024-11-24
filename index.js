@@ -23,6 +23,8 @@ const {
 
 const dbConnect = require('./src/db/db');
 const bookRouter = require('./src/routes/book');
+const itemRouter = require('./src/routes/item');
+const storeRouter = require('./src/routes/store');
 const userRouter = require('./src/routes/user');
 const courseRouter = require('./src/routes/course');
 const authRouter = require('./src/routes/auth');
@@ -160,6 +162,16 @@ app.use(
   invalidateInterceptor,
   bookRouter,
 );
+app.use(
+  '/v1/items',
+  itemRouter
+);
+
+app.use(
+  '/v1/stores',
+  storeRouter
+);
+
 app.use(
   '/v1/users',
   limiter(1 * 1000 * 60, 30),

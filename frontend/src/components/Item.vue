@@ -2,7 +2,7 @@
 <div class="container-fluid tm-container-content tm-mt-60">
         <div class="row mb-4">
             <h2 class="col-6 tm-text-primary">
-                New Items
+                Latest Items
             </h2>
             <div class="col-6 d-flex justify-content-end align-items-center">
                 <form action="" class="tm-text-primary">
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row tm-mb-90 tm-gallery">
-        	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 tm-item">
+        	
                 <ItemCard v-for="(item, index) in items"
                     :key="index"
                     :title="item.title"
@@ -19,7 +19,7 @@
                     :price="item.price"     
                     :category="item.category">
                 </ItemCard>
-            </div>
+    
                 
         </div> <!-- row -->
         <div class="row tm-mb-90">
@@ -48,7 +48,7 @@ export default({
     },
     async created(){
 
-        const url= "http://localhost:4000/v1/books";
+        const url= "http://192.168.1.11:4000/v1/items";
 
         try {
         //promise and async
