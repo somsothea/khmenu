@@ -1,7 +1,7 @@
 version: '1.1'
 name: Status Check
 env:
-  host: localhost:4000
+  host: 36.37.134.139:4000
 tests:
   example:
     steps:

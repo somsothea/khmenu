@@ -45,8 +45,8 @@ export default({
         };
     },
     async created(){
-        const storeurl= "http://192.168.1.11:4000/v1/stores";
-        const itemurl= "http://192.168.1.11:4000/v1/items";
+        const storeurl= "http://36.37.134.139:4000/v1/stores";
+        const itemurl= "http://36.37.134.139:4000/v1/items";
         try {
             //promise and async
             const store_response = await axios.get(storeurl);

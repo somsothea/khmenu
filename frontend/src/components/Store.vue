@@ -45,7 +45,7 @@ export default({
         };
     },
     async created(){
-        const url= "http://192.168.1.11:4000/v1/stores";
+        const url= "http://36.37.134.139:4000/v1/stores";
 
         try {
             //promise and async

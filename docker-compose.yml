@@ -7,7 +7,7 @@ services:
     depends_on:
       - express
     environment:
-      - NGINX_SERVER_NAME=localhost
+      - NGINX_SERVER_NAME=36.37.134.139
       - EXPRESS_HOST_1=${EXPRESS_CONTAINER}-1
       - EXPRESS_HOST_2=${EXPRESS_CONTAINER}-2
       - EXPRESS_HOST_3=${EXPRESS_CONTAINER}-3
