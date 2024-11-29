@@ -6,8 +6,8 @@
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
 
-    </div>
-    <nav class="navbar navbar-expand-lg">
+        </div>
+        <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <i class="fa fa-th-large" aria-hidden="true"></i> KH Cloud Menu
@@ -22,6 +22,12 @@
                 </li>
                 <li class="nav-item">
                     <router-link to="/items" class="nav-link nav-link-1" :class="{ active: $route.path === '/items' }">Items</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/login" class="nav-link nav-link-1" :class="{ active: $route.path === '/login' }">Login</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/contact" class="nav-link nav-link-1" :class="{ active: $route.path === '/contact' }">Contact</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/about" class="nav-link nav-link-1" :class="{ active: $route.path === '/about' }">About Us</router-link>

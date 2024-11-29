@@ -9,7 +9,8 @@ import Store from '@/pages/Store.vue'
 import StoreDetail from '@/pages/StoreDetail.vue'
 import Terms from '@/pages/Terms.vue'
 import Privacy from '@/pages/Privacy.vue'
-
+import Contact from '@/pages/Contact.vue'
+import Login from '@/pages/Login.vue'
 
 const routes = [
     { path: '/', component: Home },
@@ -22,7 +23,9 @@ const routes = [
 
     { path: '/storedetail', component: StoreDetail },
     { path: '/term', component: Terms },
-    { path: '/privacy', component: Privacy }
+    { path: '/privacy', component: Privacy },
+    { path: '/contact', component: Contact },
+    { path: '/login', component: Login }
   ]
 
   const router = createRouter({

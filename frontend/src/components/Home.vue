@@ -8,6 +8,7 @@
         <div class="row tm-mb-90 tm-gallery">
                 <StoreCard v-for="(store, index) in stores"
                     :key="index"
+                    :id="store._id"
                     :storename="store.storename"
                     :storeaddress="store.storeaddress"
                     :storebanner="store.storebanner"
@@ -22,6 +23,7 @@
         <div class="row tm-mb-90 tm-gallery">
             <ItemCard v-for="(item, index) in items"
                     :key="index"
+                    :id="item._id"
                     :title="item.title"
                     :description="item.description"
                     :price="item.price"     

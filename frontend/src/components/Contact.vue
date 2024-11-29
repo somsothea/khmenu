@@ -19,7 +19,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea rows="8" name="message" class="form-control rounded-0" placeholder="Message" required=></textarea>
+                        <textarea rows="8" name="message" class="form-control rounded-0" placeholder="Message" required></textarea>
                     </div>
 
                     <div class="form-group tm-text-right">
@@ -72,7 +72,7 @@
         </div>
         <div class="row tm-mb-74 tm-people-row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
-                <img src="img/people-1.jpg" alt="Image" class="mb-4 img-fluid">
+                <img src="@/assets/img/people-1.jpg" alt="Image" class="mb-4 img-fluid">
                 <h2 class="tm-text-primary mb-4">Ryan White</h2>
                 <h3 class="tm-text-secondary h5 mb-4">Chief Executive Officer</h3>
                 <p class="mb-4">
@@ -85,7 +85,7 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
-                <img src="img/people-2.jpg" alt="Image" class="mb-4 img-fluid">
+                <img src="@/assets/img/people-2.jpg" alt="Image" class="mb-4 img-fluid">
                 <h2 class="tm-text-primary mb-4">Catherine Pinky</h2>
                 <h3 class="tm-text-secondary h5 mb-4">Chief Marketing Officer</h3>
                 <p class="mb-4">
@@ -98,7 +98,7 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
-                <img src="img/people-3.jpg" alt="Image" class="mb-4 img-fluid">
+                <img src="@/assets/img/people-3.jpg" alt="Image" class="mb-4 img-fluid">
                 <h2 class="tm-text-primary mb-4">Johnny Brief</h2>
                 <h3 class="tm-text-secondary h5 mb-4">Accounting Executive</h3>
                 <p class="mb-4">
@@ -111,7 +111,7 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
-                <img src="img/people-4.jpg" alt="Image" class="mb-4 img-fluid">
+                <img src="@/assets/img/people-4.jpg" alt="Image" class="mb-4 img-fluid">
                 <h2 class="tm-text-primary mb-4">George Nelson</h2>
                 <h3 class="tm-text-secondary h5 mb-4">Creative Art Director #C69</h3>
                 <p class="mb-4">

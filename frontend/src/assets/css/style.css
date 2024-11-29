@@ -190,7 +190,6 @@ a:hover { color:#009999; }
 .navbar-brand i { font-size: 2rem; }
 
 .tm-hero {
-    height: 30vh;
     min-height: 200px;
     background: transparent;
 }
@@ -280,9 +279,6 @@ p, .tm-text-gray { color: #999; }
     overflow: hidden;
     text-align: center;
     cursor: pointer;
-
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Horizontal, vertical, blur, color */
 }
 
 .tm-video-item img {
@@ -291,7 +287,6 @@ p, .tm-text-gray { color: #999; }
     min-height: 100%;
     max-width: 100%;
     opacity: 0.8;
-    border-radius: 10px;
 }
 
 .tm-video-item figcaption {

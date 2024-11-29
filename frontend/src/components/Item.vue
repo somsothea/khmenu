@@ -14,6 +14,7 @@
         	
                 <ItemCard v-for="(item, index) in items"
                     :key="index"
+                    :id="item._id"
                     :title="item.title"
                     :description="item.description"
                     :price="item.price"     
