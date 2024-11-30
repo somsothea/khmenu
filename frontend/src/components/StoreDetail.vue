@@ -138,7 +138,7 @@ export default {
 
     },
     async created(){
-        const url= "http://36.37.134.139:4000/v1/stores/id";
+        const url= "http://localhost:4000/v1/stores/id";
 
         try {
             //promise and async
