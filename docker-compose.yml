@@ -33,10 +33,10 @@ services:
       context: .
       dockerfile: Dockerfile-mongo
     container_name: khmenu-mongodb
-    environment:
+    #environment:
       # provide your credentials here
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=Sothea@996042
+      #- MONGO_INITDB_ROOT_USERNAME=root
+      #- MONGO_INITDB_ROOT_PASSWORD=Sothea@996042
     ports:
       - '27017:27017'
     volumes:

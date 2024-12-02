@@ -15,7 +15,7 @@ const bookSchema = new mongoose.Schema({
         required: true
     },
     covers: [{ type: mongoose.Types.ObjectId, ref: 'Files' }],
-    user: { type: mongoose.Types.ObjectId, ref: 'Users' },
+    userid: { type: mongoose.Types.ObjectId, ref: 'Users' },
     storeid: { type: mongoose.Types.ObjectId, ref: 'Courses' },
     createdDate: { type: Date, required: true, default: new Date() }
     
