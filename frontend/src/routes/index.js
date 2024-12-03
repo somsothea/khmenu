@@ -6,7 +6,8 @@ import Home from '@/pages/Home.vue'
 import About from '@/pages/About.vue'
 import Item from '@/pages/Items.vue'
 import Store from '@/pages/Store.vue'
-import StoreDetail from '@/pages/StoreDetail.vue'
+import Stores from '@/pages/Stores.vue'
+import StoreDetail from '@/components/StoreDetail.vue'
 import Terms from '@/pages/Terms.vue'
 import Privacy from '@/pages/Privacy.vue'
 import Contact from '@/pages/Contact.vue'
@@ -18,6 +19,7 @@ const routes = [
     { path: '/items', component: Item },
     { path: '/items/:id', component: Item },
     { path: '/stores', component: Store, children:[
+      {path: '', component: Stores},
       {path: ':id', component: StoreDetail}
     ] },
 

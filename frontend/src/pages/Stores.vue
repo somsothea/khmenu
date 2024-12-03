@@ -1,17 +1,17 @@
 <template>
   <Hero/>
-  <StoreDetail/>
+  <Stores/>
 </template>
 
 <script>
 import Hero from '@/components/Hero.vue';
-import StoreDetail from '@/components/StoreDetail.vue';
+import Stores from '@/components/Store.vue';
 
 export default {
   name: 'App',
   components: {
     Hero,
-    StoreDetail,
+    Stores
   }
 }
 </script>
