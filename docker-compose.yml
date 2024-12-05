@@ -7,7 +7,7 @@ services:
     depends_on:
       - express
     environment:
-      - NGINX_SERVER_NAME=localhost
+      - NGINX_SERVER_NAME=36.37.134.139
       - EXPRESS_HOST_1=${EXPRESS_CONTAINER}-1
       - EXPRESS_HOST_2=${EXPRESS_CONTAINER}-2
       - EXPRESS_HOST_3=${EXPRESS_CONTAINER}-3
@@ -33,10 +33,6 @@ services:
       context: .
       dockerfile: Dockerfile-mongo
     container_name: khmenu-mongodb
-    #environment:
-      # provide your credentials here
-      #- MONGO_INITDB_ROOT_USERNAME=root
-      #- MONGO_INITDB_ROOT_PASSWORD=
     ports:
       - '27017:27017'
     volumes:

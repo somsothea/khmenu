@@ -6,7 +6,7 @@
             </h2>
         </div>
         <div class="row tm-mb-90 tm-gallery">
-                <StoreCard v-for="(store, index) in stores"
+                <StoreCard v-for="(store, index) in stores.slice(0, 8)"
                     :key="index"
                     :id="store._id"
                     :storename="store.storename"
@@ -21,7 +21,7 @@
             </h2>
         </div>
         <div class="row tm-mb-90 tm-gallery">
-            <ItemCard v-for="(item, index) in items"
+            <ItemCard v-for="(item, index) in items.slice(0, 8)"
                     :key="index"
                     :id="item._id"
                     :title="item.title"
@@ -47,8 +47,8 @@ export default({
         };
     },
     async created(){
-        const storeurl= "http://localhost:4000/v1/stores";
-        const itemurl= "http://localhost:4000/v1/items";
+        const storeurl= "http://36.37.134.139:4000/v1/stores";
+        const itemurl= "http://36.37.134.139:4000/v1/items";
         try {
             //promise and async
             const store_response = await axios.get(storeurl);
