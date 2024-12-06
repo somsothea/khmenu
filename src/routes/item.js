@@ -1,8 +1,9 @@
 const express = require ('express')
-const {getItems, getItemById} = require('../controller/item')
+const {getItems, getItemById, getItemByStoreId} = require('../controller/item')
 const router = express.Router();
 
 router.get('/', getItems)
 router.get('/:id', getItemById)
+router.get('/:storeId', getItemByStoreId)
 
 module.exports = router

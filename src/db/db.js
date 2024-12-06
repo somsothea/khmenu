@@ -10,7 +10,7 @@ const mongoURI = `mongodb://${dbCotainer}:27017`;
 // MongoDB connection URI
 //const mongoURI = `mongodb://${dbUser}:${dbPass}@${dbCotainer}:27017`;
 
-async function dbConnect() {
+/*async function dbConnect() {
   // Event listeners for mongoose connection
   mongoose.connection.on('connected', () => {
     console.log('Connected to MongoDB:', dbName);
@@ -37,7 +37,7 @@ async function dbConnect() {
     throw error; // Rethrow error to be handled by the caller
   }
 }
-/*
+*/
 
 async function dbConnect() {
   mongoose.connection.on('connected', () => {
@@ -48,5 +48,5 @@ async function dbConnect() {
     dbName,
   });
 }
-*/
+
 module.exports = dbConnect;

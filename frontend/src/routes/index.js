@@ -14,6 +14,7 @@ import Contact from '@/pages/Contact.vue'
 import Login from '@/pages/Login.vue'
 
 const routes = [
+    
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/items', component: Item },
