@@ -8,7 +8,7 @@ const { signJWT } = require('../utils');
 const signUp = asyncHandler(async (req, res) => {
   const { firstname, lastname, email, password, confirmPassword } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
-  const username = Date.now() + firstname;
+  const username = Date.now() + lastname;
 
   const user = new UserModel({
     username,
