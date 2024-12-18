@@ -3,7 +3,7 @@ const swagger = require('swagger-generator-express');
 // Define your router here
 
 const options = {
-  title: 'CADT Express API',
+  title: 'KHmenu.cloud API',
   version: '1.0.0',
   license: {
     name: 'Apache 2.0',
