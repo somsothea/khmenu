@@ -11,9 +11,9 @@ async function getItemById(req, res){
     return res.json(item);
 }
 async function getItemByStoreId(req, res) {
-    const { storeId } = req.query; // Extract storeId from query params
+    const { storeid } = req.query; // Extract storeId from query params
     try {
-      const item = await ItemModel.find({ storeId }); // Filter items by storeId
+      const item = await ItemModel.find({ storeid:storeid }); // Filter items by storeId
       res.json(item);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch items" });

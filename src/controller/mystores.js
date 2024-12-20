@@ -47,13 +47,13 @@ const getStoreByUserId = asyncHandler(async (req, res) => {
   const options = new PaginationParameters(req).get();
   
   // Query to find all stores by userid
-  const stores = await StoreModel.paginate({ userid }, options);
+  const Stores = await StoreModel.paginate({ userid:userid }, options);
 
-  if (!stores.docs || stores.docs.length === 0) {
+  if (!Stores.docs || Stores.docs.length === 0) {
     return res.status(404).json({ message: 'No stores found for this user.' });
   }
 
-  return res.json(stores);
+  return res.json(Stores);
 });
 
 module.exports = {

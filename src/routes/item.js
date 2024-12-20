@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get('/', getItems)
 router.get('/:id', getItemById)
-router.get('/store/:storeId', getItemByStoreId)
+router.get('/store/:storeid', getItemByStoreId)
 
 module.exports = router

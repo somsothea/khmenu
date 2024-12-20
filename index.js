@@ -130,8 +130,8 @@ app.use(
   limiter(1 * 1000 * 60, 60),
   passport.authenticate('jwt', { session: false }),
   cacheMiddleware,
-  cacheInterceptor(3 * 60),
-  invalidateInterceptor,
+  // cacheInterceptor(3 * 60),
+  // invalidateInterceptor,
   StoreRouter,
 );
 app.use(

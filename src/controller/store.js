@@ -11,10 +11,16 @@ async function getStoreById(req, res){
     return res.json(store);
 }
 
+async function getStoreByURL(req, res){
+  const {storeurl} = req.params;
+  const store = await StoreModel.findOne({ storeurl: storeurl });
+  return res.json(store);
+}
+
 async function getStoreByUserId(req, res){
-    const { userid } = req.query; // Extract userId from query parameters
+    const { userid } = req.params; // Extract userId from query parameters
     try {
-      const store = await StoreModel.find({ userid }); // Filter stores by userId
+      const store = await StoreModel.findOne({ userid:userid }); // Filter stores by userId
       res.json(store);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch stores" });
@@ -23,6 +29,7 @@ async function getStoreByUserId(req, res){
   
 module.exports = {
     getStoreById,
+    getStoreByURL,
     getStores,
     getStoreByUserId
   };
