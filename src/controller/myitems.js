@@ -46,11 +46,11 @@ const updateItemById = asyncHandler(async (req, res) => {
 });
 
 const getItemByStoreId = asyncHandler(async (req, res) => {
-  const { storeid } = req.params; // Extract userid from URL parameters
+  const { storeid } = req.params;
   const options = new PaginationParameters(req).get();
   
   // Query to find all stores by userid
-  const items = await StoreModel.paginate({ storeid:storeid }, options);
+  const items = await ItemModel.paginate({ storeid:storeid }, options);
 
   if (!items.docs || items.docs.length === 0) {
     return res.status(404).json({ message: 'No Items found for this store.' });

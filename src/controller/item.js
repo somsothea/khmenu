@@ -11,7 +11,7 @@ async function getItemById(req, res){
     return res.json(item);
 }
 async function getItemByStoreId(req, res) {
-    const { storeid } = req.query; // Extract storeId from query params
+    const { storeid } = req.params; // Extract storeId from query params
     try {
       const item = await ItemModel.find({ storeid:storeid }); // Filter items by storeId
       res.json(item);
