@@ -32,6 +32,7 @@
           </div>
           <div class="text-center mb-5">
             <QRCode :value="appURL + `stores/` + storeurl" />
+            <p>Scan to visit the store</p>
           </div>
         </div>
       </div>

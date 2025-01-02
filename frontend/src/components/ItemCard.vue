@@ -142,12 +142,12 @@ export default {
 
 /* Image Container */
 .image-container {
-  height: 200px;
+  height: 250px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: #b3b3b3;
 }
 
 .image-container img {

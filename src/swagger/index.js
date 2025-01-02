@@ -37,7 +37,7 @@ const options = {
  */
 
 function setupSwagger(app) {
-  swagger.serveSwagger(app, '/docs', options, {
+  swagger.serveSwagger(app, '/v1/docs', options, {
     routePath: './src/routes/',
     requestModelPath: './src/models/request',
     responseModelPath: './src/models/response',

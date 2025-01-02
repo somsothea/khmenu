@@ -36,7 +36,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Password (at least 8 characters)</label>
         <input
           type="password"
           id="password"

@@ -84,7 +84,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="storeurl" class="form-label">Store URL</label>
+                <label for="storeurl" class="form-label">Store URL  (ex: abcstore) </label>
                 <input v-model="newStore.storeurl" type="text" class="form-control" id="storeurl" required>
               </div>
               <div class="mb-3">
@@ -92,11 +92,11 @@
                 <input v-model="newStore.storedescription" type="text" class="form-control" id="storedescription" required>
               </div>
               <div class="mb-3">
-                <label for="storecontact" class="form-label">Store Contact</label>
+                <label for="storecontact" class="form-label">Store Contact (ex: 010123456)</label>
                 <input v-model="newStore.storecontact" type="text" class="form-control" id="storecontact" required>
               </div>
               <div class="mb-3">
-                <label for="storetelegram" class="form-label">Store Telegram / Web</label>
+                <label for="storetelegram" class="form-label">Store Telegram / Web (ex: https://fb.me/abcstore)</label>
                 <input v-model="newStore.storetelegram" type="text" class="form-control" id="storetelegram">
               </div>
               <div class="mb-3">

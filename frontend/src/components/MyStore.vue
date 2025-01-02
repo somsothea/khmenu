@@ -1,7 +1,7 @@
 <template>
   <div class="container-lg">
     <!-- Store's Profile -->
-    <div class="row">
+  <div class="row">
   <div class="col-12">
     <h1 class="text-center">Store's Profile</h1>
     <div v-if="store" class="card shadow-sm">
@@ -102,8 +102,8 @@
         </div>
       </div>
     </div>
+    <br/>
   </div>
-  <br/>
 </template>
 <script>
 import axiosInstance from '@/axios/axios.js';

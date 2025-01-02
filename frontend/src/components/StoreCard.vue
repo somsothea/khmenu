@@ -26,12 +26,12 @@ export default{
 </script>
 <style>
 .image-container {
-    height: 200px; /* Set the desired height for all images */
+    height: 250px; /* Set the desired height for all images */
     overflow: hidden; /* Hide any overflow outside the container */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* Optional: background color for empty spaces */
+    background-color: #b3b3b3; /* Optional: background color for empty spaces */
   }
   
   .image-container img {

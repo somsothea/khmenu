@@ -162,7 +162,8 @@ app.use(
   invalidateInterceptor,
   userRouter,
 );
-
+app.use(handleError);
+setupSwagger(app);
 //app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'frontend/dist')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('*', (req, res) => {  res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));});
@@ -178,8 +179,7 @@ app.get('*', (req, res) => {  res.sendFile(path.join(__dirname, 'frontend/dist',
 });
 */
 
-app.use(handleError);
-setupSwagger(app);
+
 
 server.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

@@ -6,8 +6,8 @@ import '@/assets/fontawesome/css/all.min.css';
 import '@/assets/css/style.css';
 import i18n from '@/i18n.js';
 import 'aos/dist/aos.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap';
+import "bootstrap"; // Import Bootstrap JavaScript
+//import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 
 const app = createApp(App)
