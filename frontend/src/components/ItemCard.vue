@@ -142,7 +142,7 @@ export default {
 
 /* Image Container */
 .image-container {
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   display: flex;
   justify-content: center;

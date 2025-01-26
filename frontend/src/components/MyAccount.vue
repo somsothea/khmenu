@@ -89,15 +89,15 @@
               </div>
               <div class="mb-3">
                 <label for="storedescription" class="form-label">Store Description</label>
-                <input v-model="newStore.storedescription" type="text" class="form-control" id="storedescription" required>
+                <textarea v-model="newStore.storedescription" class="form-control" id="storedescription" required></textarea>
               </div>
               <div class="mb-3">
                 <label for="storecontact" class="form-label">Store Contact (ex: 010123456)</label>
-                <input v-model="newStore.storecontact" type="text" class="form-control" id="storecontact" required>
+                <input v-model="newStore.storecontact" type="tel" class="form-control" id="storecontact" required>
               </div>
               <div class="mb-3">
                 <label for="storetelegram" class="form-label">Store Telegram / Web (ex: https://fb.me/abcstore)</label>
-                <input v-model="newStore.storetelegram" type="text" class="form-control" id="storetelegram">
+                <input v-model="newStore.storetelegram" type="url" class="form-control" id="storetelegram">
               </div>
               <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
@@ -119,7 +119,7 @@
 
 <script>
 import QRCode from '@chenfengyuan/vue-qrcode';
-import axiosInstance from '@/axios/axios.js';
+import axiosInstance from '@/utils/axios.js';
 import { getImageUrl } from '@/utils/imageHelper';
 const appURL = process.env.VUE_APP_DOMAIN_NAME;
 
@@ -193,17 +193,6 @@ export default {
         if (!this.newStore.storebannerFile) {
           throw new Error('Store banner file is required.');
         }
-        // Validate storecontact as a telephone number
-        const phoneRegex = /^[+]?[\d\s()-]{7,20}$/; // Allows numbers, spaces, dashes, and optional country code
-        if (!phoneRegex.test(this.newStore.storecontact)) {
-          throw new Error('Invalid phone number format.');
-        }
-        // Validate storetelegram as a URL
-        const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/; // Basic URL pattern
-        if (this.newStore.storetelegram && !urlRegex.test(this.newStore.storetelegram)) {
-          throw new Error('Invalid URL format.');
-        }
-
         // Upload the store logo and store banner
         const logoResponse = await this.uploadFile(this.newStore.storelogoFile);
         const bannerResponse = await this.uploadFile(this.newStore.storebannerFile);

@@ -26,7 +26,7 @@ export default{
 </script>
 <style>
 .image-container {
-    height: 250px; /* Set the desired height for all images */
+    height: 200px; /* Set the desired height for all images */
     overflow: hidden; /* Hide any overflow outside the container */
     display: flex;
     justify-content: center;

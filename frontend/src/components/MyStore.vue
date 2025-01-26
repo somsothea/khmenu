@@ -19,6 +19,8 @@
             <p><strong>Store Logo: </strong><br>
               <img :src="getImageUrl(store.storelogo)" alt="Store Logo" class="img-fluid" style="max-height: 100px;">
             </p>
+            <!-- Button to trigger edit modal -->
+            <button class="btn btn-primary mt-3" @click="showEditModal = true">Edit Store</button>
           </div>
 
           <!-- Right Column -->
@@ -65,7 +67,50 @@
         <p>No items found for this store.</p>
       </div>
     </div>
-
+    <!-- Edit Store Modal -->
+    <div v-if="showEditModal" class="modal d-block" tabindex="-1">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Store Information</h5>
+            <button type="button" class="btn-close" @click="showEditModal = false"></button>
+          </div>
+          <div class="modal-body">
+            <form @submit.prevent="updateStore">
+              <div class="mb-3">
+                <label for="storename" class="form-label">Store Name</label>
+                <input v-model="store.storename" type="text" id="storename" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="storeurl" class="form-label">Store URL</label>
+                <input v-model="store.storeurl" type="text" id="storeurl" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="storedescription" class="form-label">Description</label>
+                <textarea v-model="store.storedescription" id="storedescription" class="form-control" rows="3" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="storecontact" class="form-label">Contact</label>
+                <input v-model="store.storecontact" type="text" id="storecontact" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="storetelegram" class="form-label">Telegram/Link</label>
+                <input v-model="store.storetelegram" type="text" id="storetelegram" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="fileLogo" class="form-label">Upload Logo</label>
+                <input type="file" id="fileLogo" class="form-control" @change="handleLogoUpload">
+              </div>
+              <div class="mb-3">
+                <label for="fileBanner" class="form-label">Upload Banner</label>
+                <input type="file" id="fileBanner" class="form-control" @change="handleBannerUpload">
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Update Store</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Add Item Modal -->
     <div v-if="showAddModal" class="modal d-block" tabindex="-1">
       <div class="modal-dialog modal-dialog-scrollable">
@@ -106,7 +151,8 @@
   </div>
 </template>
 <script>
-import axiosInstance from '@/axios/axios.js';
+import axiosInstance from '@/utils/axios.js';
+import { uploadFile } from '@/utils/uploadFile.js';
 import { getImageUrl } from '@/utils/imageHelper';
 
 export default {
@@ -115,6 +161,7 @@ export default {
       store: null, // Store data
       items: [], // Store's items
       showAddModal: false, // Show or hide the add item modal
+      showEditModal: false, // Edit store modal state
       newItem: {
         title: '',
         price: '',
@@ -122,6 +169,8 @@ export default {
         description: '',
         file: null, // File to be uploaded
       },
+      storeLogo: null,
+      storeBanner: null,
     };
   },
   methods: {
@@ -141,6 +190,60 @@ export default {
         console.error('Error fetching data:', error.response?.data || error.message);
       }
     },
+    
+    async updateStore() {
+      try {
+        const storeId = this.$route.params.id;
+        console.log('Updating store:', storeId);
+        // Prepare the form data for file uploads
+        const formData = new FormData();
+
+        // Upload logo if selected
+        if (this.storeLogo) {
+          const logoFilename = await uploadFile(this.storeLogo);
+          formData.append('logo', logoFilename); // Append the new file name for the logo
+        }
+
+        // Upload banner if selected
+        if (this.storeBanner) {
+          const bannerFilename = await uploadFile(this.storeBanner);
+          formData.append('banner', bannerFilename); // Append the new file name for the banner
+        }
+
+        // Append store data to form data
+        formData.append('storename', this.store.storename);
+        formData.append('storeurl', this.store.storeurl);
+        formData.append('storedescription', this.store.storedescription);
+        formData.append('storecontact', this.store.storecontact);
+        formData.append('storetelegram', this.store.storetelegram);
+
+        // Make PUT request to update store data
+        const response = await axiosInstance.put(`/mystores/${storeId}`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }, // Set the content type to multipart/form-data
+        });
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+          formDataObject[key] = value;
+        });
+        console.log('Form data as object:', formDataObject);
+        console.log('Store updated successfully:', response.data);
+
+        // Close modal and refresh data
+        this.showEditModal = false;
+        this.fetchStoreData(); // Fetch the updated store data
+      } catch (error) {
+        console.error('Error updating store:', error.response?.data || error.message);
+      }
+    },
+
+    handleLogoUpload(event) {
+      this.storeLogo = event.target.files[0];
+    },
+
+    handleBannerUpload(event) {
+      this.storeBanner = event.target.files[0];
+    }
+    ,
     async addItem() {
       try {
         const storeId = this.$route.params.id;
