@@ -14,7 +14,7 @@ module.exports = {
       select: Joi.string().optional(),
     },
     model: 'getAllUsers',
-    group: 'User',
+    group: 'user',
     description: 'Get all users',
   },
 };

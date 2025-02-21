@@ -40,18 +40,43 @@ const handleUpload = async (req, res) => {
 
 
 const getFile = asyncHandler(async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   const file = await FileModel.findById(id);
-  return res.sendFile(path.join(__dirname, `./../../${  file.path}`));
+
+  if (!file) {
+    return res.status(404).json({ error: "File not found" });
+  }
+
+  const filePath = path.join(__dirname, '../../', file.path);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: "File does not exist on server" });
+  }
+
+  return res.sendFile(filePath);
 });
 
+
 const deleteFile = asyncHandler(async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   const file = await FileModel.findById(id);
-  fs.unlinkSync(path.join(__dirname, `./../../${  file.path}`));
-  const result = await FileModel.deleteOne({ _id: id });
-  return res.json(result);
+
+  if (!file) {
+    return res.status(404).json({ error: "File not found" });
+  }
+
+  const filePath = path.join(__dirname, '../../', file.path);
+
+  if (fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+  } else {
+    console.warn(`File not found: ${filePath}`);
+  }
+
+  await FileModel.deleteOne({ _id: id });
+  return res.json({ message: "File deleted successfully" });
 });
+
 module.exports = {
   handleUpload,
   getFile,
