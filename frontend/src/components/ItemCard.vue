@@ -3,13 +3,10 @@
     <figure class="effect-ming tm-video-item" @click="showLightbox">
       <div class="image-container">
         <img :src="getImageUrl(itemimage)" alt="Image" class="img-fluid">
-      </div>
-      <figcaption class="d-flex align-items-center justify-content-center">         
-        <h5>{{ title }}</h5>
-      </figcaption>                    
+      </div>                
     </figure>
     <div class="d-flex justify-content-between tm-text-gray">
-      <span class="tm-text-gray-light">{{ description }}</span>
+      <span class="tm-text-gray-light">{{ title }}</span>
       <span>{{ price }} $</span>
     </div>
 
@@ -81,65 +78,6 @@ export default {
 </script>
 
 <style>
-/* Lightbox Overlay */
-.lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Align content at the top */
-  z-index: 1000;
-  overflow: auto; /* Allow scrolling for the entire modal */
-  padding: 20px; /* Add padding for better appearance on smaller screens */
-  box-sizing: border-box;
-}
-
-/* Lightbox Content */
-.lightbox-content {
-  position: relative;
-  max-width: 100%;
-  max-height: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Lightbox Image Scrollable */
-.lightbox-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 80vh; /* Limit image height to fit in the modal */
-  object-fit: contain; /* Maintain aspect ratio */
-  overflow-y: auto; /* Enable vertical scrolling for large images */
-}
-
-/* Caption */
-.lightbox-caption {
-  width: 100%;
-  color: white;
-  margin-top: 20px;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.6);
-  box-sizing: border-box;
-}
-
-/* Close Button */
-.lightbox-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
 /* Image Container */
 .image-container {
   height: 200px;
@@ -154,4 +92,120 @@ export default {
   height: 100%;
   width: auto;
 }
+
+/* Lightbox Overlay */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto; /* Allows scrolling for long content */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Lightbox Content */
+.lightbox-content {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Scrollable content inside Lightbox */
+.lightbox-content {
+  overflow-y: auto; /* Enables vertical scrolling for long text */
+}
+
+/* Lightbox Image */
+.lightbox-image {
+  width: 100%;
+  max-height: 60vh; /* Limits height but keeps it responsive */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Caption */
+.lightbox-caption {
+  width: 100%;
+  padding: 15px;
+  color: #333;
+  text-align: left;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow-y: auto; /* Ensures scrolling on long descriptions */
+  max-height: 30vh; /* Prevents overflow on small screens */
+}
+
+/* Close Button */
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff3b3b;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background: #d32f2f;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .lightbox-content {
+    max-width: 95%;
+    max-height: 95vh;
+    padding: 15px;
+  }
+
+  .lightbox-caption {
+    font-size: 0.9rem;
+    max-height: 35vh; /* Adjusts caption size for mobile */
+  }
+
+  .lightbox-image {
+    max-height: 50vh; /* Ensures mobile-friendly scaling */
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 </style>
